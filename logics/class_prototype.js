@@ -1,3 +1,37 @@
+(function(angular) {
+  'use strict';
+function Employee() { this.name = "";   this.dept = "general";  }
+function Manager() {  Employee.call(this);  this.reports = [];  }
+Manager.prototype = Object.create(Employee.prototype);
+function WorkerBee() {    Employee.call(this);    this.projects = []; }
+WorkerBee.prototype = Object.create(Employee.prototype);
+function SalesPerson() {     WorkerBee.call(this);     this.dept = "sales";   this.quota = 100; }
+SalesPerson.prototype = Object.create(WorkerBee.prototype);
+function Engineer() {  WorkerBee.call(this); this.dept = "engineering";  this.machine = ""; }
+Engineer.prototype = Object.create(WorkerBee.prototype);
+var jim = new Employee;
+// jim.name is ''
+// jim.dept is 'general'
+var sally = new Manager;
+// sally.name is ''
+// sally.dept is 'general'
+// sally.reports is []
+var mark = new WorkerBee;
+// mark.name is ''
+// mark.dept is 'general'
+// mark.projects is []
+var fred = new SalesPerson;
+// fred.name is ''
+// fred.dept is 'sales'
+// fred.projects is []
+// fred.quota is 100
+var jane = new Engineer;
+// jane.name is ''
+// jane.dept is 'engineering'
+// jane.projects is []
+// jane.machine is ''
+console.log(jane);
+})(window.angular);
 /*  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model
     
 Class-based vs. prototype-based languages
@@ -24,8 +58,5 @@ JavaScript implements inheritance by allowing you to associate a prototypical ob
 Adding and removing properties
 
 In class-based languages, you typically create a class at compile time and then you instantiate instances of the class either at compile time or at run time. You cannot change the number or the type of properties of a class after you define the class. In JavaScript, however, at run time you can add or remove properties of any object. If you add a property to an object that is used as the prototype for a set of objects, the objects for which it is the prototype also get the new property.
-
-
-
 
 */
