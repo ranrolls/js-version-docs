@@ -1,3 +1,11 @@
+
+/* best array decleration with size set to 0 */
+var ak = new Array(0);
+console.log(ak);
+
+var dv = new Int8Array();
+console.log(dv);
+
 var ar = [0];
 
 for(var i = 0; i < 9; i++){ ar[i] = i; }
@@ -28,7 +36,7 @@ console.log(sumLg);
 
 //  fastest for loop
 
-for(var i=0,n=md.length; i<n; ++i)
-{
-    total += md [i];
-}
+//for(var i=0,n=md.length; i<n; ++i)
+//{
+//    total += md [i];
+//}
